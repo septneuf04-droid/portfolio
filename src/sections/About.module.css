@@ -1,0 +1,218 @@
+.aboutSection {
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(240, 61, 26, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(240, 61, 26, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(255, 168, 52, 0.1) 0%, transparent 50%),
+    var(--color-bg);
+  overflow: hidden;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.sectionIndex {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-accent-amber);
+  letter-spacing: 0.1em;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* Grille À propos */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.manifestoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bigQuote {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.highlight {
+  background: var(--color-glow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraphGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paragraph {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* Colonne Stats & Carte */
+.statsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.statCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow);
+  background-color: var(--color-surface-hover);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFA834 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Carte Identité / Démarche */
+.identityCard {
+  background: linear-gradient(135deg, rgba(255, 43, 27, 0.08) 0%, rgba(255, 110, 26, 0.04) 100%);
+  border: 1px solid rgba(255, 110, 26, 0.2);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.identityCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-glow-gradient);
+}
+
+.identityTitle {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.identityList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.identityItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.itemCheck {
+  color: var(--color-accent-amber);
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    margin-bottom: 2rem;
+  }
+  .sectionTitle {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .manifestoCol {
+    gap: 1.25rem;
+  }
+  .bigQuote {
+    font-size: clamp(1.25rem, 5.2vw, 1.75rem);
+    line-height: 1.28;
+  }
+  .paragraph {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  .statsGrid {
+    gap: 0.75rem;
+  }
+  .statCard {
+    padding: 1.15rem;
+    gap: 4px;
+  }
+  .statValue {
+    font-size: 2.25rem;
+  }
+  .statLabel {
+    font-size: 0.8125rem;
+  }
+  .identityCard {
+    padding: 1.25rem;
+    gap: 12px;
+  }
+  .identityItem {
+    font-size: 0.875rem;
+  }
+}
+
