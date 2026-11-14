@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr" class="lenis">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sept-neuf | Développeur Full-Stack & Étudiant en Informatique</title>
+  <meta name="description" content="Portfolio de Sept-neuf, développeur full-stack & étudiant en informatique. Applications web concrètes, utiles et soignées (Next.js, Python, Three.js, GSAP).">
+  <meta name="keywords" content="Sept-neuf, Développeur Web, Full-Stack, Python, JavaScript, Next.js, Portfolio, Kinshasa, RDC">
+  <meta name="author" content="Sept-neuf">
+  <meta name="theme-color" content="#100807">
+
+  <!-- Open Graph / Meta Réseaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sept-neuf | Développeur Full-Stack">
+  <meta property="og:description" content="Je transforme des idées en applications web utiles.">
+  <meta property="og:image" content="images/portrait.png">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F5781E'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- Google Fonts : Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet unifiée Pure CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       PRELOADER DE DÉPART (Ultra-rapide avec mémorisation de session)
+       ====================================================================== -->
+  <aside id="preloader" class="preloader" aria-label="Chargement du site">
+    <div class="preloader-top">
+      <div class="preloader-brand">Sept-neuf</div>
+      <div class="preloader-tagline">Développeur Full-Stack · Étudiant en informatique</div>
+    </div>
+    <div class="preloader-center">
+      <div id="preloader-counter" class="preloader-counter">00</div>
+      <div class="preloader-progress-bar">
+        <div id="preloader-fill" class="preloader-progress-fill"></div>
+      </div>
+    </div>
+    <div class="preloader-bottom">
+      <div>Développeur full-stack · Étudiant en informatique</div>
+      <div>© 2026</div>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       CURSEUR PERSONNALISÉ (Desktop souris uniquement)
+       ====================================================================== -->
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       EN-TÊTE / HEADER NAVIGATION
+       ====================================================================== -->
+  <header id="header" class="header" role="banner">
+    <div class="container header-container">
+      <!-- Logo / Brand -->
+      <a href="#hero" class="brand" aria-label="Sept-neuf - Retour en haut">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </span>
+        <span>Sept-neuf<span class="brand-dot">.</span></span>
+      </a>
+
+      <!-- Navigation Desktop -->
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#hero" class="nav-link">Accueil</a>
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#projects" class="nav-link">Projets</a>
+        <a href="#skills" class="nav-link">Compétences</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions Droite -->
+      <div class="header-actions">
+        <a href="#contact" class="cta-button" aria-label="Accéder à la section Contact">
+          <span class="cta-icon" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </span>
+          <span>Contact</span>
+        </a>
+
+        <!-- Bouton Menu Mobile Burger -->
+        <button id="mobile-toggle" type="button" class="mobile-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+
+      <!-- Dropdown Mobile Menu -->
+      <div id="mobile-dropdown" class="mobile-dropdown" role="navigation" aria-label="Menu mobile">
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="#hero" class="mobile-nav-link">
+              <span>Accueil</span>
+              <div class="mobile-link-meta">
+                <span class="mobile-nav-index">01</span>
+                <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="mobile-nav-link">
+              <span>À propos</span>
+              <div class="mobile-link-meta">
+                <span class="mobile-nav-index">02</span>
+                <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="mobile-nav-link">
+              <span>Projets</span>
+              <div class="mobile-link-meta">
+                <span class="mobile-nav-index">03</span>
+                <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="mobile-nav-link">
+              <span>Compétences</span>
+              <div class="mobile-link-meta">
+                <span class="mobile-nav-index">04</span>
+                <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="mobile-nav-link">
+              <span>Contact</span>
+              <div class="mobile-link-meta">
+                <span class="mobile-nav-index">05</span>
+                <span class="mobile-nav-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mobile-dropdown-footer">
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Disponible pour un stage ou freelance</span>
+          </div>
+          <p class="mobile-contact-text">amanimoses886@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       HERO SECTION (3D Three.js + Portrait Centré + Titre & Sous-texte)
+       ====================================================================== -->
+  <section id="hero" class="hero-section" aria-label="Section d'accueil">
+    <!-- Arrière-plan 3D Three.js Canvas -->
+    <div class="hero-canvas-wrapper" aria-hidden="true">
+      <canvas id="hero-canvas"></canvas>
+      <div class="ambient-glow"></div>
+    </div>
+
+    <!-- Portrait centré avec Flexbox container (aucune désaxation possible) -->
+    <div class="portrait-container" aria-hidden="true">
+      <div id="hero-portrait" class="portrait-wrapper">
+        <div class="portrait-glow"></div>
+        <picture>
+          <source srcset="images/portrait.webp" type="image/webp">
+          <img
+            id="hero-portrait-img"
+            src="images/portrait.png"
+            alt="Sept-neuf - Développeur Full-Stack"
+            class="portrait-img"
+            loading="eager"
+            decoding="async"
+          >
+        </picture>
+      </div>
+    </div>
+
+    <!-- Conteneur principal du Hero -->
+    <div class="container hero-container">
+      <!-- Badge de statut supérieur -->
+      <div id="hero-badge" class="top-badge-wrapper">
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>DISPONIBLE POUR UN STAGE OU DES MISSIONS FREELANCE</span>
+        </div>
+      </div>
+
+      <!-- Grille principale : Titre à gauche, sous-texte & CTA à droite -->
+      <div class="headline-grid">
+        <div class="title-block">
+          <div class="title-line-mask">
+            <span id="hero-title-1" class="title-line">Je transforme des idées</span>
+          </div>
+          <div class="title-line-mask">
+            <span id="hero-title-2" class="title-line">en applications web utiles<span class="accent-dot">.</span></span>
+          </div>
+        </div>
+
+        <div id="hero-subtext" class="subtext-block">
+          <p class="subtext">
+            Développeur full-stack · Python, JavaScript, Next.js · Étudiant en informatique
+          </p>
+
+          <div id="hero-cta" class="cta-group">
+            <a href="#projects" class="primary-cta" data-interactive="true">
+              <span>Voir mes projets</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a href="#contact" class="secondary-cta" data-interactive="true">
+              <span>Me contacter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicateur de défilement vers le bas -->
+    <div id="hero-scroll-indicator" class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Défiler</span>
+    </div>
+
+    <!-- Divider de transition lumineuse vers la section suivante -->
+    <div class="transition-divider" aria-hidden="true">
+      <div id="hero-transition-line" class="transition-line"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SECTION 01 // À PROPOS
+       ====================================================================== -->
+  <section id="about" class="section about-section" aria-label="Aperçu À propos">
+    <div class="container">
+      <!-- En-tête de section -->
+      <div class="section-header-row about-header">
+        <span class="section-index">01 //</span>
+        <h2 class="section-title">À propos</h2>
+      </div>
+
+      <!-- Grille de contenu -->
+      <div class="about-grid">
+        <!-- Manifeste & Biographie -->
+        <div class="about-manifesto">
+          <div class="big-quote">
+            « Étudiant en informatique, je me forme en <span class="highlight">construisant</span>. »
+          </div>
+
+          <div class="paragraph-group">
+            <p class="paragraph">
+              J'ai déjà conçu une application de gestion scolaire en Next.js, une plateforme de facturation pour entrepreneurs africains et un assistant IA pour enseignants.
+            </p>
+            <p class="paragraph">
+              Ce qui me motive : créer des outils simples qui résolvent des problèmes réels, avec des interfaces propres et un code que je peux maintenir.
+            </p>
+          </div>
+        </div>
+
+        <!-- Statistiques et Profil -->
+        <div class="about-stats-col">
+          <div class="stats-grid">
+            <div class="stat-card" data-interactive="true">
+              <div class="stat-value">03</div>
+              <div class="stat-label">Projets réalisés</div>
+            </div>
+            <div class="stat-card" data-interactive="true">
+              <div class="stat-value">05</div>
+              <div class="stat-label">Technologies maîtrisées</div>
+            </div>
+          </div>
+
+          <div class="identity-card">
+            <div class="identity-title">Profil & Disponibilité</div>
+            <ul class="identity-list">
+              <li class="identity-item">
+                <span class="item-check" aria-hidden="true">✓</span>
+                <span>Développeur full-stack · Étudiant en informatique</span>
+              </li>
+              <li class="identity-item">
+                <span class="item-check" aria-hidden="true">✓</span>
+                <span>Disponible pour un stage ou des missions freelance.</span>
+              </li>
+              <li class="identity-item">
+                <span class="item-check" aria-hidden="true">✓</span>
+                <span>Langues : Français, lingala, swahili, english</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SECTION 02 // PROJETS (Stacking Cards façon Figma / Awwwards)
+       ====================================================================== -->
+  <section id="projects" class="section projects-section" aria-label="Projets">
+    <div class="container">
+      <!-- En-tête de section -->
+      <div class="projects-header-row">
+        <div class="title-group">
+          <span class="section-index">02 //</span>
+          <h2 class="section-title">Projets</h2>
+        </div>
+        <p class="header-subtitle">
+          Une sélection d'applications concrètes, utiles et soignées avec interfaces immersives.
+        </p>
+      </div>
+
+      <!-- Barre d'onglets Figma interactifs pour naviguer dans les cartes -->
+      <div class="figma-tabs-bar" role="tablist" aria-label="Sélectionner un projet">
+        <div class="tabs-track">
+          <button type="button" role="tab" class="tab-btn tab-active" data-project-idx="0" aria-selected="true">
+            <span class="tab-dot" aria-hidden="true"></span>
+            <span class="tab-index">01</span>
+            <span class="tab-name">Application de gestion scolaire</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-project-idx="1" aria-selected="false">
+            <span class="tab-dot" aria-hidden="true"></span>
+            <span class="tab-index">02</span>
+            <span class="tab-name">SaaS Facturation Afrique</span>
+          </button>
+          <button type="button" role="tab" class="tab-btn" data-project-idx="2" aria-selected="false">
+            <span class="tab-dot" aria-hidden="true"></span>
+            <span class="tab-index">03</span>
+            <span class="tab-name">Assistant IA Enseignants</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Deck de Cartes Superposées (Sticky Stacking Deck) -->
+      <div id="deck-container" class="deck-container">
+
+        <!-- CARTE PROJET 1 : SaaS Facturation -->
+        <article class="project-card" data-card-idx="0" data-interactive="true">
+          <!-- Barre fenêtre style Figma -->
+          <div class="figma-window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-amber"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-pill">
+              <span class="pill-status-dot"></span>
+              <span class="pill-text">SaaS Production • Afrique</span>
+            </div>
+            <span class="deck-index">01 / 03</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card-details">
+              <div class="meta-row">
+                <span class="category-badge">Plateforme SaaS</span>
+                <span class="year-badge">En ligne</span>
+              </div>
+
+              <h3 class="project-title">SaaS de facturation pour entrepreneurs africains</h3>
+              <p class="project-desc">Facturation simple et adaptée au contexte africain.</p>
+
+              <div class="features-list">
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Factures & Devis adaptés aux monnaies africaines</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Envoi direct WhatsApp & téléchargement PDF instantané</span>
+                </div>
+              </div>
+
+              <div class="tech-tags-row">
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Next.js</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Supabase</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Tailwind</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Vercel</span>
+              </div>
+
+              <div class="actions-row">
+                <a href="https://sept-facture.vercel.app/" target="_blank" rel="noopener noreferrer" class="primary-project-btn" aria-label="Accéder à Sept-Facture">
+                  <span>Explorer l'application</span>
+                  <span class="btn-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Mockup Figma UI interactif -->
+            <div class="card-preview-wrapper">
+              <div class="preview-aura"></div>
+              <div class="figma-mockup-box">
+                <div class="mockup-header-bar">
+                  <span class="mockup-tag">SEPT-FACTURE // Dashboard</span>
+                  <span class="status-pill-live">Payée ✓</span>
+                </div>
+                <div class="mockup-metric-group">
+                  <span class="mockup-metric-label">Total Facturé</span>
+                  <span class="mockup-metric-value">2 450,00 $</span>
+                </div>
+                <div class="mockup-items-list">
+                  <div class="mockup-item">
+                    <span>Développement Plateforme Web Next.js</span>
+                    <span class="item-price">1 800 $</span>
+                  </div>
+                  <div class="mockup-item">
+                    <span>Configuration Supabase & Authentification</span>
+                    <span class="item-price">650 $</span>
+                  </div>
+                </div>
+                <div class="mockup-footer-btns">
+                  <span class="micro-btn">📄 Télécharger PDF</span>
+                  <span class="micro-btn-accent">💬 WhatsApp Direct</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARTE PROJET 2 : Gestion Scolaire Python -->
+        <article class="project-card" data-card-idx="1" data-interactive="true">
+          <div class="figma-window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-amber"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-pill">
+              <span class="pill-status-dot"></span>
+              <span class="pill-text">Application Bureau • Python</span>
+            </div>
+            <span class="deck-index">02 / 03</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card-details">
+              <div class="meta-row">
+                <span class="category-badge">Gestion & Interface</span>
+                <span class="year-badge">Python</span>
+              </div>
+
+              <h3 class="project-title">Application de gestion scolaire</h3>
+              <p class="project-desc">Gestion des étudiants, notes, moyennes et fiches, avec interface graphique professionnelle.</p>
+
+              <div class="features-list">
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Calcul automatique des moyennes & classements</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Génération automatique de fiches & bulletins imprimables</span>
+                </div>
+              </div>
+
+              <div class="tech-tags-row">
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Python</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Tkinter / CustomTkinter</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>SQLite</span>
+              </div>
+
+              <div class="actions-row">
+                <div class="internal-badge">
+                  <span>Projet Réalisé</span>
+                  <span class="badge-code">✓ Code Finalisé</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-preview-wrapper">
+              <div class="preview-aura"></div>
+              <div class="figma-mockup-box">
+                <div class="mockup-header-bar">
+                  <span class="mockup-tag">BULLETIN // Gestion Académique</span>
+                  <span class="status-pill-grade">18.5 / 20</span>
+                </div>
+                <div class="student-card">
+                  <div class="student-avatar">SN</div>
+                  <div class="student-info">
+                    <span class="student-name">Sept-neuf (Étudiant)</span>
+                    <span class="student-class">L3 Génie Logiciel & Systèmes</span>
+                  </div>
+                </div>
+                <div class="grade-bars">
+                  <div class="grade-bar-row">
+                    <span>Algorithmique & Python</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 96%"></div></div>
+                    <span class="grade-note">19/20</span>
+                  </div>
+                  <div class="grade-bar-row">
+                    <span>Bases de Données & SQL</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 92%"></div></div>
+                    <span class="grade-note">18/20</span>
+                  </div>
+                </div>
+                <div class="mockup-footer-btns">
+                  <span class="micro-btn-accent">✓ Fiche Validée</span>
+                  <span class="micro-btn">Fiches Imprimables</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARTE PROJET 3 : Assistant IA Enseignants -->
+        <article class="project-card" data-card-idx="2" data-interactive="true">
+          <div class="figma-window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-amber"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-pill">
+              <span class="pill-status-dot"></span>
+              <span class="pill-text">Assistant IA • Pédagogique</span>
+            </div>
+            <span class="deck-index">03 / 03</span>
+          </div>
+
+          <div class="card-grid">
+            <div class="card-details">
+              <div class="meta-row">
+                <span class="category-badge">Intelligence Artificielle</span>
+                <span class="year-badge">IA</span>
+              </div>
+
+              <h3 class="project-title">Assistant IA pour enseignants</h3>
+              <p class="project-desc">Préparation de cours, génération de questionnaires, examens et corrigés, correction assistée, bulletins.</p>
+
+              <div class="features-list">
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Génération de questionnaires, examens & corrigés types</span>
+                </div>
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>Correction assistée par IA & préparation de cours</span>
+                </div>
+              </div>
+
+              <div class="tech-tags-row">
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Next.js</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>API LLM / IA</span>
+                <span class="tech-pill"><span class="tech-pill-dot"></span>Tailwind</span>
+              </div>
+
+              <div class="actions-row">
+                <div class="internal-badge">
+                  <span>Projet Réalisé</span>
+                  <span class="badge-code">✓ Code Finalisé</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-preview-wrapper">
+              <div class="preview-aura"></div>
+              <div class="figma-mockup-box">
+                <div class="mockup-header-bar">
+                  <span class="mockup-tag">ASSISTANT PROF // Générateur IA</span>
+                  <span class="status-pill-ai">IA Active</span>
+                </div>
+                <div class="ai-prompt-bubble">
+                  <span class="prompt-label">Prompt Enseignant :</span>
+                  <p class="prompt-text">
+                    « Préparer un examen d'informatique : 15 questions, corrigé type détaillé et barème par question. »
+                  </p>
+                </div>
+                <div class="ai-result-card">
+                  <span class="ai-result-icon">⚡</span>
+                  <div class="ai-result-content">
+                    <span class="ai-doc-title">Examen_Semestre_Corrigé.pdf</span>
+                    <span class="ai-doc-meta">15 questions générées • Corrigé inclus</span>
+                  </div>
+                </div>
+                <div class="mockup-footer-btns">
+                  <span class="micro-btn-accent">✨ Générer nouveau sujet</span>
+                  <span class="micro-btn">Exporter PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SECTION 03 // COMPÉTENCES & OUTILS
+       ====================================================================== -->
+  <section id="skills" class="section skills-section" aria-label="Compétences techniques">
+    <div class="container">
+      <div class="section-header-row skills-header">
+        <span class="section-index">03 //</span>
+        <h2 class="section-title">Compétences & Outils</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Catégorie 1 : Solide -->
+        <div class="category-card" data-interactive="true">
+          <div class="category-header">
+            <div class="category-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="category-title">Solide</h3>
+          </div>
+          <div class="skills-pills">
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>HTML</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>CSS</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>JavaScript</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Python</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>SQL</span></div>
+          </div>
+        </div>
+
+        <!-- Catégorie 2 : En pratique -->
+        <div class="category-card" data-interactive="true">
+          <div class="category-header">
+            <div class="category-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 class="category-title">En pratique</h3>
+          </div>
+          <div class="skills-pills">
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Next.js</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Supabase</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Tailwind CSS</span></div>
+          </div>
+        </div>
+
+        <!-- Catégorie 3 : En apprentissage -->
+        <div class="category-card" data-interactive="true">
+          <div class="category-header">
+            <div class="category-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="category-title">En apprentissage</h3>
+          </div>
+          <div class="skills-pills">
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>GSAP</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Three.js</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Lenis</span></div>
+            <div class="skill-pill"><span class="pill-dot" aria-hidden="true"></span><span>Bases de données</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SECTION 04 // CONTACT
+       ====================================================================== -->
+  <section id="contact" class="contact-section" aria-label="Section Contact">
+    <div class="ambient-backdrop" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="contact-content-wrapper">
+        <div class="section-header-row contact-header">
+          <span class="section-index">04 //</span>
+          <span class="section-title">Contact</span>
+        </div>
+
+        <h2 class="big-callout">
+          Construisons des applications <span class="callout-gradient">utiles et concrètes</span>.
+        </h2>
+
+        <p class="contact-subtext">
+          Disponible pour un stage ou des missions freelance. N’hésitez pas à me contacter par email ou via mes réseaux pour échanger.
+        </p>
+
+        <div class="contact-actions-group">
+          <a href="mailto:amanimoses886@gmail.com" class="primary-email-btn" data-interactive="true">
+            <span>Me contacter par email</span>
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <button id="copy-email-btn" type="button" class="copy-email-btn" data-interactive="true" aria-label="Copier l'adresse email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span>amanimoses886@gmail.com</span>
+          </button>
+        </div>
+
+        <!-- Notification de copie -->
+        <div id="copy-toast" class="copy-toast" role="status" aria-live="polite">
+          ✓ Adresse email copiée dans le presse-papier !
+        </div>
+
+        <!-- Liens Réseaux Sociaux -->
+        <div class="socials-row">
+          <a href="https://github.com/septneuf04-droid" target="_blank" rel="noopener noreferrer" class="social-link" data-interactive="true">
+            <span>GitHub</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#" class="social-link" data-interactive="true">
+            <span>LinkedIn</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="mailto:amanimoses886@gmail.com" class="social-link" data-interactive="true">
+            <span>Email</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-top-section">
+        <div class="footer-brand-col">
+          <div class="brand">
+            Sept-neuf<span class="brand-dot">.</span>
+          </div>
+          <p class="footer-description">
+            Étudiant en informatique, je me forme en construisant. Ce qui me motive : créer des outils simples qui résolvent des problèmes réels, avec des interfaces propres et un code que je peux maintenir.
+          </p>
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Disponible pour un stage ou freelance</span>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-link-group">
+            <div class="footer-group-title">Navigation</div>
+            <a href="#hero" class="footer-link">Accueil</a>
+            <a href="#about" class="footer-link">À propos</a>
+            <a href="#projects" class="footer-link">Projets</a>
+            <a href="#skills" class="footer-link">Compétences</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+
+          <div class="footer-link-group">
+            <div class="footer-group-title">Réseaux & Liens</div>
+            <a href="https://github.com/septneuf04-droid" target="_blank" rel="noopener noreferrer" class="footer-link">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#" class="footer-link">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a href="mailto:amanimoses886@gmail.com" class="footer-link">
+              Email <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-section">
+        <div>
+          © 2026 Sept-neuf. Tous droits réservés.
+        </div>
+
+        <button id="back-to-top-btn" type="button" class="back-to-top" aria-label="Retourner en haut de page">
+          <span>Retour en haut</span>
+          <span class="arrow-icon" aria-hidden="true">↑</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       LIBRAIRIES EXTERNES LÉGÈRES CDN (Zero Build Step, Pure Performance)
+       ====================================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Script d'orchestration Vanilla JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
