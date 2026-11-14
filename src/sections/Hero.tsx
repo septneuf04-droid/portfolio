@@ -164,12 +164,16 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded }) => {
       <div className={styles.portraitContainer} aria-hidden="true">
         <div ref={portraitRef} className={styles.portraitWrapper}>
           <div className={styles.portraitGlow} />
-          <img
-            src="/images/portrait.png"
-            alt={personal.name}
-            className={styles.portraitImg}
-            loading="eager"
-          />
+          <picture>
+            <source srcSet="/images/portrait.webp" type="image/webp" />
+            <img
+              src="/images/portrait.png"
+              alt={personal.name}
+              className={styles.portraitImg}
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
 

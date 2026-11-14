@@ -21,8 +21,21 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
-    // Si l'animation a déjà été complétée, ne pas la relancer
     if (hasFinishedRef.current) return;
+
+    // Si déjà vu dans cette session de navigation, affichage instantané direct (0ms)
+    try {
+      if (sessionStorage.getItem('portfolio_preloader_seen') === 'true') {
+        if (containerRef.current) {
+          containerRef.current.style.display = 'none';
+        }
+        hasFinishedRef.current = true;
+        onCompleteRef.current();
+        return;
+      }
+    } catch {
+      // Ignorer si sessionStorage restreint
+    }
 
     // Détection prefers-reduced-motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -38,11 +51,11 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       const counterObj = { val: 0 };
       const tl = gsap.timeline();
 
-      // 1. Progression douce et feutrée du compteur
+      // 1. Progression ultra-rapide et rythmée du compteur (0.65s au lieu de 1.4s)
       tl.to(counterObj, {
         val: 100,
-        duration: 1.4,
-        ease: 'power2.inOut',
+        duration: 0.65,
+        ease: 'power2.out',
         onUpdate: () => {
           const current = Math.round(counterObj.val);
           if (counterRef.current) {
@@ -54,16 +67,19 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         },
       });
 
-      // Pause subtile à 100%
-      tl.to({}, { duration: 0.1 });
+      // Micro pause imperceptible
+      tl.to({}, { duration: 0.05 });
 
-      // 2. Révélation du Hero en fondu croisé
+      // 2. Révélation immédiate du contenu
       tl.call(() => {
         hasFinishedRef.current = true;
+        try {
+          sessionStorage.setItem('portfolio_preloader_seen', 'true');
+        } catch {}
         onCompleteRef.current();
       });
 
-      // 3. Estompage doux des textes
+      // 3. Estompage vif des textes
       tl.to(
         [
           counterRef.current,
@@ -73,19 +89,18 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         ],
         {
           opacity: 0,
-          y: -10,
-          duration: 0.45,
+          y: -8,
+          duration: 0.22,
           ease: 'power2.out',
         }
       );
 
-      // 4. Dissolution soyeuse du rideau
+      // 4. Dissolution fluide et rapide de l'écran
       tl.to(
         containerRef.current,
         {
           opacity: 0,
-          scale: 1.02,
-          duration: 0.75,
+          duration: 0.38,
           ease: 'power2.inOut',
           onStart: () => {
             if (containerRef.current) {
@@ -98,11 +113,11 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             }
           },
         },
-        '-=0.3'
+        '-=0.15'
       );
     }, containerRef);
 
-    // Filet de sécurité absolu : si jamais l'animation est ralentie ou bloquée
+    // Filet de sécurité rapide : 1.5s max au cas où
     const safetyTimer = setTimeout(() => {
       if (!hasFinishedRef.current) {
         hasFinishedRef.current = true;
@@ -111,7 +126,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         }
         onCompleteRef.current();
       }
-    }, 3000);
+    }, 1500);
 
     return () => {
       clearTimeout(safetyTimer);

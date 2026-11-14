@@ -22,7 +22,7 @@ export const HeroCanvas: React.FC = () => {
           <Suspense fallback={<div className={styles.staticFallback} />}>
             <Canvas
               camera={{ position: [0, 0, 4.2], fov: 45 }}
-              dpr={[1, 1.75]} // Plafonné pour préserver la batterie et le framerate 60fps
+              dpr={[1, 1.4]} // Plafonné intelligemment pour préserver le GPU et le framerate
               gl={{
                 powerPreference: 'high-performance',
                 antialias: true,

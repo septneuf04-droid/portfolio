@@ -17,8 +17,8 @@ export const HeroScene: React.FC = () => {
 
   const { pointer, viewport } = useThree();
 
-  // Particules lumineuses d'ambiance (étincelles incandescentes)
-  const particleCount = 65;
+  // Particules lumineuses d'ambiance (étincelles incandescentes légères)
+  const particleCount = 35;
   const [particlePositions] = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
 
@@ -95,14 +95,13 @@ export const HeroScene: React.FC = () => {
       {/* Halo orbital 3D d'arrière-plan créant la profondeur derrière le portrait */}
       <group position={[0, 0.1, -1.5]}>
         <mesh ref={meshRef} scale={1.05}>
-          <torusGeometry args={[1.5, 0.08, 16, 80]} />
-          <meshPhysicalMaterial
+          <torusGeometry args={[1.5, 0.08, 16, 64]} />
+          <meshStandardMaterial
             color="#FF6E1A"
-            roughness={0.2}
-            metalness={0.9}
-            clearcoat={1.0}
+            roughness={0.25}
+            metalness={0.8}
             emissive="#FF3A14"
-            emissiveIntensity={0.6}
+            emissiveIntensity={0.5}
             transparent
             opacity={0.4}
           />
